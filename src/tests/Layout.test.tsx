@@ -6,7 +6,9 @@ describe('Layout', () => {
   test('should renders header', () => {
     render(
       <BrowserRouter>
-        <Layout children={<h1>hi</h1>}/>
+        <Layout>
+          <h1>hi</h1>
+        </Layout>
       </BrowserRouter>
     )
     const headerElement = screen.getByText(/React Map App/i)
