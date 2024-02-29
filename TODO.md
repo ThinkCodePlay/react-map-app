@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] Add React Testing Library
+- [X] Add React Testing Library
 - [ ] Add side menu bar
 - [ ] Add Tabs
 - [ ] Add Split Pane
