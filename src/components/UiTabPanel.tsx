@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
+import {ReactNode} from "react";
 
-const MyTabPanel = (props) => {
+const MyTabPanel = (props: { [x: string]: any; children: ReactNode; value: string; index: string; }) => {
   const { children, value, index, ...other } = props;
 
   return (
