@@ -1,9 +1,12 @@
 import './App.css'
+import 'mapbox-gl/dist/mapbox-gl.css';
+import CssBaseline from '@mui/material/CssBaseline'
+import {ThemeProvider} from "@mui/material";
+
 import Layout from "./layout/Layout.tsx";
 import Home from "./pages/Home.tsx";
 import {darkTheme, lightTheme} from "./themes.ts";
 
-import {ThemeProvider} from "@mui/material";
 import {useState} from "react";
 
 function App() {
@@ -16,6 +19,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Layout toggleTheme={toggleTheme} theme={theme} >
           <Home/>
         </Layout>
