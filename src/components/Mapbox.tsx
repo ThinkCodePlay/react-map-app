@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import Map, {Layer, MapRef, Source} from 'react-map-gl';
-import { useSearchParams } from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 import * as mapboxgl from 'mapbox-gl';
 import './Mapbox.css';
 
@@ -8,6 +8,7 @@ interface IFitBoundGeojson {
   features: { geometry: { coordinates: number[][][]; type: string }; type: string; properties: object }[];
   type: string;
 }
+
 
 const fitBoundGeojson = (geojson: IFitBoundGeojson, mapRef: React.MutableRefObject<MapRef | null>) => {
   try {
@@ -37,10 +38,16 @@ const Mapbox = () => {
   const useFootgun = useEffect;
   const mapRef = useRef<MapRef | null>(null);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [layerData, setLayerData] = useState(null);
+  const [layerData, setLayerData] = useState({
+    type: "fill",
+    id: "",
+    source: "",
+    layout: {},
+    paint: {}
+  });
   const TOKEN = import.meta.env.VITE_APP_MAPBOX_TOKEN as string;
 
-  const geojson = {
+  const geojson: GeoJSON.FeatureCollection<GeoJSON.Geometry> = {
     "type": "FeatureCollection",
     "features": [
       {
@@ -86,6 +93,7 @@ const Mapbox = () => {
     if (event.key === 'Enter') {
       //const zipcode = event.target.value;
 
+      // @ts-ignore
       fitBoundGeojson(geojson, mapRef);
 
       setLayerData({
@@ -123,7 +131,9 @@ const Mapbox = () => {
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         <Source type="geojson" data={geojson}>
-          {layerData && <Layer {...layerData} />}
+          {layerData &&
+              <Layer type="fill" id={layerData.id} source={layerData.source} layout={layerData.layout}
+                     paint={layerData.paint}/>}
         </Source>
       </Map>
     </div>
