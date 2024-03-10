@@ -3,7 +3,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import React, { useState } from "react";
-import Mapbox from "../components/mapbox.tsx";
+import Mapbox from "../components/Mapbox.tsx";
 import UiTabPanel from "../components/UiTabPanel.tsx";
 import { Button } from "@mui/material";
 

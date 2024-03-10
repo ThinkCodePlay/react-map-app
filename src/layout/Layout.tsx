@@ -9,8 +9,8 @@ import {lightTheme} from "../themes.ts";
 
 interface LayoutProps {
   children: ReactNode;
-  toggleTheme: () => void;
-  theme: any; // Add theme prop
+  theme: never;
+  toggleTheme: () => void; // Add theme prop
 }
 
 const Layout = ({children, toggleTheme, theme}: LayoutProps) => {

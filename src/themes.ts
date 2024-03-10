@@ -25,6 +25,11 @@ const darkTheme = createTheme({
       default: '#303030', // This will be the background color in dark mode
       paper: '#424242',
     },
+    text: {
+      primary: '#ffffff',
+      secondary: '#ffffff',
+      disabled: '#ffffff',
+    },
   },
 });
 
