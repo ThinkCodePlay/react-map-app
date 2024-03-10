@@ -38,6 +38,7 @@ const Mapbox = () => {
   const mapRef = useRef<MapRef | null>(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const [layerData, setLayerData] = useState(null);
+  const TOKEN = import.meta.env.VITE_APP_MAPBOX_TOKEN as string;
 
   const geojson = {
     "type": "FeatureCollection",
@@ -112,7 +113,7 @@ const Mapbox = () => {
       <Map
         ref={mapRef}
         reuseMaps
-        mapboxAccessToken="pk.eyJ1IjoiandlYmRldiIsImEiOiJjbDc0ZmU1NjAwOW90M250aDJtZG5tMmJiIn0.YdqgvikWgQKr1Yvq45N75Q"
+        mapboxAccessToken={TOKEN}
         initialViewState={{
           longitude: -122.4,
           latitude: 37.8,
